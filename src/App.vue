@@ -6,7 +6,7 @@
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
-    <HelloWorld msg="Hello Vue 2 + Vite" />
+    <HelloWorld :msg="msg" />
   </div>
 </template>
 
@@ -15,6 +15,11 @@ import HelloWorld from "./components/HelloWorld.vue";
 export default {
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      msg: "Welcome to Your Vue.js + Vite App",
+    };
   },
 };
 </script>
@@ -27,5 +32,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+img {
+  width: 100px;
+  height: 100px;
+  margin: auto 30px;
 }
 </style>
