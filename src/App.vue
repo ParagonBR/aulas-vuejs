@@ -1,20 +1,19 @@
 <template>
-  <div id="app">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-    <HelloWorld :msg="msg" />
+  <div>
+    <custom-navbar></custom-navbar>
+    <ListaPoke></ListaPoke>
+    <custom-footer></custom-footer>
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+
+import ListaPoke from "./components/lista.vue";
 export default {
   components: {
     HelloWorld,
+    ListaPoke,
   },
   data() {
     return {
