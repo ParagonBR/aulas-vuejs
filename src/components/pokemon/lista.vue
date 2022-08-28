@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container class="">
+    <b-container>
       <b-card bg-variant="dark" text-variant="white" class="m-5">
         <b-button
           v-for="pokemon in lista"
@@ -12,8 +12,21 @@
           >{{ pokemon.name }}</b-button
         >
       </b-card>
-      <b-card bg-variant="dark" text-variant="white" class="m-5">
-        <div class="d-flex flex-wrap">
+      <b-overlay
+        :show="showLoading"
+        v-if="showLoading"
+        rounded="sm"
+        variant="transparent"
+        class="p-2"
+      >
+      </b-overlay>
+      <b-card
+        bg-variant="dark"
+        text-variant="white"
+        class="m-5"
+        v-if="pokemon?.length > 0"
+      >
+        <div class="d-flex flex-wrap listaPokemon">
           <b-card
             text-variant="black"
             class="p-2 flex-fill m-3"
@@ -46,6 +59,7 @@ export default {
     return {
       lista: [],
       pokemon: [],
+      showLoading: false,
     };
   },
   methods: {
@@ -55,9 +69,10 @@ export default {
     },
 
     async getPokemonList(url) {
+      this.showLoading = true;
       const response = await axios.get(url);
       this.pokemon = response.data.pokemon;
-      this.$emit("getPokemonList", response.data.pokemon);
+      this.showLoading = false;
     },
   },
   mounted() {
@@ -65,3 +80,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>

@@ -8,8 +8,7 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
-
-import ListaPoke from "./components/lista.vue";
+import ListaPoke from "./components/pokemon/lista.vue";
 export default {
   components: {
     HelloWorld,
