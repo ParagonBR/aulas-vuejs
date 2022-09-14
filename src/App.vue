@@ -1,22 +1,27 @@
 <template>
   <div>
     <custom-navbar></custom-navbar>
-    <ListaPoke></ListaPoke>
+    <!-- <ListaPoke></ListaPoke> -->
+    <ninjas :ninjas="ninjas"></ninjas>
     <custom-footer></custom-footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import ListaPoke from "./components/pokemon/lista.vue";
+import ninjas from "./components/ninjas.vue";
 export default {
   components: {
-    HelloWorld,
-    ListaPoke,
+    ninjas,
   },
   data() {
     return {
-      msg: "Welcome to Your Vue.js + Vite App",
+      ninjas: [
+        { name: "Ryu", age: 30, belt: "black" },
+        { name: "Ken", age: 20, belt: "orange" },
+        { name: "Chun-Li", age: 10, belt: "green" },
+        { name: "Yoshi", age: 20, belt: "white" },
+        { name: "Crystal", age: 25, belt: "blue" },
+      ],
     };
   },
 };
