@@ -3,6 +3,11 @@
     <custom-navbar></custom-navbar>
     <div class="m-5 text-center">
       <h3>{{ msg }}</h3>
+      <div class="m-3">
+        <img alt="Vue logo" src="/src/assets/vue.svg" />
+
+        <img src="/public/vite.svg" alt="Vite logo" />
+      </div>
       <p>{{ lorem }}</p>
     </div>
   </div>
@@ -34,4 +39,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+img {
+  width: 50px;
+  height: 50px;
+}
+</style>
