@@ -1,8 +1,9 @@
 <template>
   <div>
     <custom-navbar></custom-navbar>
-    <div class="m-5 d-flex justify-content-center align-items-center">
+    <div class="m-5 text-center">
       <h3>{{ msg }}</h3>
+      <p>{{ lorem }}</p>
     </div>
   </div>
 </template>
@@ -15,14 +16,20 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue.js + Vite App",
+      lorem: null,
+      random: Math.floor(Math.random() * (200 - 1) + 1),
     };
   },
-  mounted() {
-    http
-      .get("https://jsonplaceholder.typicode.com/todos/1")
-      .then(({ data }) => {
-        console.log(data);
-      });
+  async beforeMount() {
+    try {
+      const { data } = await http.get(
+        `https://jsonplaceholder.typicode.com/todos/${this.random}`
+      );
+      this.lorem = data.title;
+    } catch (err) {
+      console.log(err);
+      this.lorem = "Erro ao carregar dados, favor checar console";
+    }
   },
 };
 </script>
