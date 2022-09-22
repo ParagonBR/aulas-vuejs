@@ -1,17 +1,18 @@
 <template>
   <div>
     <custom-navbar></custom-navbar>
-    <!-- <ListaPoke></ListaPoke> -->
-    <ninjas :ninjas="ninjas"></ninjas>
+    <formularios />
     <custom-footer></custom-footer>
   </div>
 </template>
 
 <script>
 import ninjas from "./components/ninjas.vue";
+import formularios from "./components/form/formularios.vue";
 export default {
   components: {
     ninjas,
+    formularios,
   },
   data() {
     return {
@@ -22,7 +23,13 @@ export default {
         { name: "Yoshi", age: 20, belt: "white" },
         { name: "Crystal", age: 25, belt: "blue" },
       ],
+      texto: "Hello World",
     };
+  },
+  methods: {
+    changeText(newText) {
+      this.texto = newText;
+    },
   },
 };
 </script>
