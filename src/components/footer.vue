@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: "footer",
+  name: "custom-footer",
 };
 </script>
 

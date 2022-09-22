@@ -10,6 +10,8 @@ Vue.component("custom-navbar", navbar);
 Vue.component("custom-footer", footer);
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue);
+
+export const bus = new Vue();
 new Vue({
   el: "#app",
   render: (h) => h(App),
